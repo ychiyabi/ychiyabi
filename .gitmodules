@@ -1,0 +1,9 @@
+[submodule "stock-api"]
+	path = stock-api
+	url = ./stock-api
+[submodule "stock-web"]
+	path = stock-web
+	url = ./stock-web
+[submodule "stock-mobile"]
+	path = stock-mobile
+	url = ./stock-mobile
