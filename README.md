@@ -50,9 +50,9 @@ Comptes disponibles :
 
 | Email | Mot de passe |
 | --- | --- |
-| `admin@stock.dz` | `Test@1234` |
-| `manager@stock.dz` | `Test@1234` |
-| `operateur@stock.dz` | `Test@1234` |
+| `admin@stock.ma` | `Test@1234` |
+| `manager@stock.ma` | `Test@1234` |
+| `operateur@stock.ma` | `Test@1234` |
 
 ## Lancement en local sans Docker
 
