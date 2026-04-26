@@ -40,7 +40,7 @@ docker compose up -d
 - Web : `http://localhost:5174`
 - API : `http://localhost:8080/api/v1`
 - Swagger : `http://localhost:8080/api/v1/swagger-ui.html`
-- PostgreSQL : `localhost:5432`
+- PostgreSQL : `localhost:5433`
 
 ## Données de démonstration
 
