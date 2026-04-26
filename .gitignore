@@ -1,16 +1,23 @@
-# Environment / secrets
-.env
-.env.local
-*.env
+# Root-only local env / secrets
+/.env
+/.env.local
+/.env.*.local
 
-# OS
-.DS_Store
-Thumbs.db
+# Root-only accidental package manager files
+/node_modules/
+/package.json
+/package-lock.json
+/pnpm-lock.yaml
+/yarn.lock
 
 # IDE
 .vscode/
 .idea/
 
-# Docker volumes
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker / local runtime artifacts
 postgres_data/
 ml_models/
