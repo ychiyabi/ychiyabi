@@ -1,0 +1,56 @@
+flowchart LR
+    visiteur[Visiteur]
+    utilisateur[Utilisateur authentifie]
+    owner[Owner]
+    manager[Manager]
+    operator[Operateur]
+    google[Google OAuth]
+
+    subgraph systeme[Plateforme Stock Management]
+        UC1((S'inscrire))
+        UC2((Se connecter))
+        UC3((Se connecter avec Google))
+        UC4((Consulter le profil))
+        UC5((Gerer les workspaces))
+        UC6((Gerer les membres))
+        UC7((Gerer les categories))
+        UC8((Gerer les produits))
+        UC9((Enregistrer un mouvement de stock))
+        UC10((Consulter les alertes))
+        UC11((Consulter les tableaux de bord BI))
+        UC12((Entrainer un modele ML))
+        UC13((Generer une prevision de demande))
+        UC14((Optimiser le stock))
+        UC15((Utiliser la plateforme depuis le web))
+        UC16((Utiliser la plateforme depuis le mobile))
+    end
+
+    visiteur --> UC1
+    visiteur --> UC2
+    visiteur --> UC3
+    google --> UC3
+
+    utilisateur --> UC4
+    utilisateur --> UC5
+    utilisateur --> UC7
+    utilisateur --> UC8
+    utilisateur --> UC9
+    utilisateur --> UC10
+    utilisateur --> UC11
+    utilisateur --> UC12
+    utilisateur --> UC13
+    utilisateur --> UC14
+    utilisateur --> UC15
+    utilisateur --> UC16
+
+    owner --> UC5
+    owner --> UC6
+
+    manager --> UC6
+    manager --> UC7
+    manager --> UC8
+    manager --> UC9
+
+    operator --> UC7
+    operator --> UC8
+    operator --> UC9

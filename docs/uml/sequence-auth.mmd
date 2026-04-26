@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor U as Utilisateur
+    participant W as Stock Web / Mobile
+    participant AC as AuthController
+    participant AS as AuthService
+    participant UR as UserRepository
+    participant JP as JwtTokenProvider
+
+    U->>W: saisir email + mot de passe
+    W->>AC: POST /auth/login
+    AC->>AS: login(loginRequest)
+    AS->>UR: rechercher l'utilisateur par email
+    UR-->>AS: utilisateur trouve
+    AS->>AS: verifier le mot de passe
+    AS->>JP: generateAccessToken(user)
+    JP-->>AS: accessToken
+    AS->>JP: generateRefreshToken(user)
+    JP-->>AS: refreshToken
+    AS-->>AC: AuthResponse(user, tokens)
+    AC-->>W: 200 OK + session
+    W-->>U: ouverture du dashboard

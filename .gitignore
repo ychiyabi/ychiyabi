@@ -21,3 +21,4 @@ Thumbs.db
 # Docker / local runtime artifacts
 postgres_data/
 ml_models/
+.mermaid-tmp/

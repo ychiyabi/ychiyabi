@@ -1,0 +1,40 @@
+sequenceDiagram
+    actor U as Utilisateur
+    participant V as Vue ML (Web)
+    participant MC as MlController
+    participant MS as MlService
+    participant FES as FeatureEngineeringService
+    participant SMR as StockMovementRepository
+    participant XGT as XGBoostTrainer
+    participant MLR as MlModelRepository
+    participant XGP as XGBoostPredictor
+    participant SFR as SalesForecastRepository
+
+    U->>V: lancer l'entrainement d'un produit
+    V->>MC: POST /workspaces/{workspaceId}/ml/train/{productId}
+    MC->>MS: trainModel(workspaceId, productId)
+    MS->>FES: buildDailySalesTimeSeries(...)
+    FES->>SMR: lire les mouvements OUT et LOSS
+    SMR-->>FES: historique des mouvements
+    FES-->>MS: serie temporelle completee
+    MS->>FES: buildFeatureVectors(timeSeries)
+    FES-->>MS: features d'entrainement
+    MS->>XGT: train(vectors, modelPath)
+    XGT-->>MS: modelPath + rmse + mae
+    MS->>MLR: sauvegarder le modele actif
+    MLR-->>MS: modele enregistre
+    MS-->>MC: ModelTrainingResponse
+    MC-->>V: resultat de l'entrainement
+
+    U->>V: demander une prevision
+    V->>MC: GET /workspaces/{workspaceId}/ml/forecast/{productId}
+    MC->>MS: forecast(workspaceId, productId, horizonDays)
+    MS->>FES: reconstruire l'historique recent
+    FES-->>MS: historique
+    MS->>XGP: predict(modelPath, futureVectors)
+    XGP-->>MS: quantites predites
+    MS->>SFR: supprimer anciennes previsions
+    MS->>SFR: enregistrer nouvelles previsions
+    SFR-->>MS: previsions persistantes
+    MS-->>MC: ForecastResponse
+    MC-->>V: courbe de prevision
