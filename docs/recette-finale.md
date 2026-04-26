@@ -124,6 +124,13 @@ npm test
 npm run build
 ```
 
+### Documentation des tests
+
+- inventaire global : [`docs/tests-et-couverture.md`](./tests-et-couverture.md)
+- tests backend détaillés : [`stock-api/docs/tests/`](../stock-api/docs/tests/)
+- documentation des modules API : [`stock-api/docs/modules/README.md`](../stock-api/docs/modules/README.md)
+- tests frontend détaillés : [`stock-web/docs/tests/`](../stock-web/docs/tests/)
+
 ### Mobile
 
 ```bash
@@ -135,4 +142,5 @@ npm start
 
 - la partie BI est intégrée dans `stock-web`
 - la base de démonstration est désormais marocaine (`MAD`, `Africa/Casablanca`)
+- la documentation globale des tests renvoie vers chaque suite backend et frontend
 - cette fiche peut être réutilisée comme support de recette avant soutenance

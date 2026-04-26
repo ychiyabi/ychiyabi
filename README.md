@@ -79,10 +79,41 @@ npm install
 npm start
 ```
 
+## Tests et documentation qualité
+
+### Commandes principales
+
+```bash
+cd stock-api && mvn test
+cd stock-web && npm test
+cd stock-web && npm run build
+```
+
+### Suites actuellement en place
+
+| Projet | Suite | Couvre | Documentation |
+| --- | --- | --- | --- |
+| `stock-api` | `AuthControllerTest` | endpoints d'authentification HTTP | [`stock-api/docs/tests/AuthControllerTest.md`](./stock-api/docs/tests/AuthControllerTest.md) |
+| `stock-api` | `JwtTokenProviderTest` | génération, validation et rejet JWT | [`stock-api/docs/tests/JwtTokenProviderTest.md`](./stock-api/docs/tests/JwtTokenProviderTest.md) |
+| `stock-api` | `CategoryServiceTest` | arborescence, profondeur, suppression sécurisée | [`stock-api/docs/tests/CategoryServiceTest.md`](./stock-api/docs/tests/CategoryServiceTest.md) |
+| `stock-api` | `ProductServiceTest` | unicité SKU/barcode, valeurs par défaut, statut stock | [`stock-api/docs/tests/ProductServiceTest.md`](./stock-api/docs/tests/ProductServiceTest.md) |
+| `stock-api` | `BiServiceTest` | KPI dashboard, alertes critiques, classification ABC | [`stock-api/docs/tests/BiServiceTest.md`](./stock-api/docs/tests/BiServiceTest.md) |
+| `stock-api` | `FeatureEngineeringServiceTest` | série temporelle et features ML/XGBoost | [`stock-api/docs/tests/FeatureEngineeringServiceTest.md`](./stock-api/docs/tests/FeatureEngineeringServiceTest.md) |
+| `stock-web` | `auth.spec.js` | store Pinia d'authentification | [`stock-web/docs/tests/auth-store.spec.md`](./stock-web/docs/tests/auth-store.spec.md) |
+| `stock-web` | `router/index.spec.js` | guards de navigation et redirections | [`stock-web/docs/tests/router-guards.spec.md`](./stock-web/docs/tests/router-guards.spec.md) |
+
+### Documentation consolidée
+
+- Inventaire global des tests : [`docs/tests-et-couverture.md`](./docs/tests-et-couverture.md)
+- Documentation des modules API : [`stock-api/docs/modules/README.md`](./stock-api/docs/modules/README.md)
+- Explication ML/XGBoost : [`stock-api/docs/xgboost-explication.md`](./stock-api/docs/xgboost-explication.md)
+
 ## Notes
 
 - La partie BI est intégrée à `stock-web`.
 - Les migrations SQL se trouvent dans `stock-api/src/main/resources/db/migration`.
 - La documentation XGBoost se trouve dans `stock-api/docs/xgboost-explication.md`.
+- L'inventaire global des tests se trouve dans `docs/tests-et-couverture.md`.
+- La documentation module par module de l'API se trouve dans `stock-api/docs/modules/README.md`.
 - La fiche de recette finale se trouve dans `docs/recette-finale.md`.
 - La documentation mobile se trouve dans `stock-mobile/README.md`.
