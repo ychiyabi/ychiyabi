@@ -84,3 +84,5 @@ npm start
 - La partie BI est intégrée à `stock-web`.
 - Les migrations SQL se trouvent dans `stock-api/src/main/resources/db/migration`.
 - La documentation XGBoost se trouve dans `stock-api/docs/xgboost-explication.md`.
+- La fiche de recette finale se trouve dans `docs/recette-finale.md`.
+- La documentation mobile se trouve dans `stock-mobile/README.md`.
