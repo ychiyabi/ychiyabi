@@ -75,11 +75,13 @@ Les vérifications suivantes ont déjà été exécutées sur l'environnement co
 - démarrage complet via Docker Compose
 - health API
 - accès web
+- routes web principales servies correctement (`/`, `/login`, `/dashboard`, `/bi`)
 - migrations Flyway
 - données seed marocaines
 - connexion email `admin@stock.ma`
 - récupération du profil `/auth/me`
 - contrôle du point d'information OAuth `/auth/oauth2/info`
+- redirection d'entrée OAuth confirmée vers Google (`302`)
 - lecture de la liste des workspaces
 - création d'un workspace temporaire de recette
 - création d'une catégorie temporaire
@@ -88,6 +90,7 @@ Les vérifications suivantes ont déjà été exécutées sur l'environnement co
 - lecture du compteur d'alertes
 - lecture des endpoints BI principaux
 - lecture des endpoints ML principaux
+- démarrage du mobile Expo en mode web sur `http://localhost:8081`
 - suppression logique du workspace temporaire de recette
 
 ## Validation manuelle restante
